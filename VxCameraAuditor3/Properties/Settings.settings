@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="VxCameraAuditor3.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="vxCore" Type="System.String" Scope="User">
+      <Value Profile="(Default)">192.168.5.10</Value>
+    </Setting>
+    <Setting Name="vxAdmin" Type="System.String" Scope="User">
+      <Value Profile="(Default)">admin</Value>
+    </Setting>
+    <Setting Name="vxPass" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Pel2899100</Value>
+    </Setting>
+    <Setting Name="vxsUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)">admin</Value>
+    </Setting>
+    <Setting Name="vxsPass" Type="System.String" Scope="User">
+      <Value Profile="(Default)">admin</Value>
+    </Setting>
+    <Setting Name="vxsPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">9443</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
