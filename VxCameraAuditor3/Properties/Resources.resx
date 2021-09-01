@@ -151,4 +151,7 @@
   <data name="camerror" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\2twny1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="pelco_msi_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pelco_msi_logo.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

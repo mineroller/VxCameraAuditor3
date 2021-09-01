@@ -173,6 +173,20 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tabVUMainGUI = new System.Windows.Forms.TabControl();
             this.tabDashboard = new System.Windows.Forms.TabPage();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.lblOverviewMonitorQty = new System.Windows.Forms.Label();
+            this.lblOverviewUIQty = new System.Windows.Forms.Label();
+            this.lblOverviewClientsQty = new System.Windows.Forms.Label();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.lblOverviewASQty = new System.Windows.Forms.Label();
+            this.lblOverviewAIOQty = new System.Windows.Forms.Label();
+            this.lblOverviewNSMQty = new System.Windows.Forms.Label();
+            this.lblOverviewVXSQty = new System.Windows.Forms.Label();
+            this.lblOverviewMGQty = new System.Windows.Forms.Label();
+            this.lblOverviewCoreQty = new System.Windows.Forms.Label();
+            this.lblOverviewRecorderQty = new System.Windows.Forms.Label();
+            this.lblOverviewServersQty = new System.Windows.Forms.Label();
+            this.lblOverviewSystemType = new System.Windows.Forms.Label();
             this.btnGetSystemDashboard = new System.Windows.Forms.Button();
             this.tabDeviceSearch = new System.Windows.Forms.TabPage();
             this.btnAddDeviceByCSV = new System.Windows.Forms.Button();
@@ -254,20 +268,11 @@
             this.ctxMenuResetPwd = new System.Windows.Forms.ToolStripMenuItem();
             this.ctxMenuAssignNewRole = new System.Windows.Forms.ToolStripMenuItem();
             this.ctxDeleteUsers = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblOverviewSystemType = new System.Windows.Forms.Label();
-            this.lblOverviewServersQty = new System.Windows.Forms.Label();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.lblOverviewRecorderQty = new System.Windows.Forms.Label();
-            this.lblOverviewCoreQty = new System.Windows.Forms.Label();
-            this.lblOverviewMGQty = new System.Windows.Forms.Label();
-            this.lblOverviewVXSQty = new System.Windows.Forms.Label();
-            this.lblOverviewNSMQty = new System.Windows.Forms.Label();
-            this.lblOverviewAIOQty = new System.Windows.Forms.Label();
-            this.lblOverviewASQty = new System.Windows.Forms.Label();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.lblOverviewMonitorQty = new System.Windows.Forms.Label();
-            this.lblOverviewUIQty = new System.Windows.Forms.Label();
-            this.lblOverviewClientsQty = new System.Windows.Forms.Label();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.prgVolumeSpace = new System.Windows.Forms.ProgressBar();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -287,6 +292,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picCamPreviewJPG)).BeginInit();
             this.tabVUMainGUI.SuspendLayout();
             this.tabDashboard.SuspendLayout();
+            this.groupBox12.SuspendLayout();
+            this.groupBox11.SuspendLayout();
             this.tabDeviceSearch.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox9.SuspendLayout();
@@ -301,8 +308,7 @@
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.olvUserList)).BeginInit();
             this.ctxUserToolkit.SuspendLayout();
-            this.groupBox11.SuspendLayout();
-            this.groupBox12.SuspendLayout();
+            this.groupBox13.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -679,6 +685,7 @@
             // 
             // tabRecorder
             // 
+            this.tabRecorder.Controls.Add(this.groupBox13);
             this.tabRecorder.Controls.Add(this.label22);
             this.tabRecorder.Controls.Add(this.grpVxsDiag);
             this.tabRecorder.Controls.Add(this.lblRecorderAssocDS);
@@ -708,8 +715,6 @@
             // 
             // grpVxsDiag
             // 
-            this.grpVxsDiag.Controls.Add(this.cmbVolumes);
-            this.grpVxsDiag.Controls.Add(this.label27);
             this.grpVxsDiag.Controls.Add(this.lblRecorderUnitEvents);
             this.grpVxsDiag.Controls.Add(this.label33);
             this.grpVxsDiag.Controls.Add(this.lblRecorderUnitXcast);
@@ -724,9 +729,9 @@
             this.grpVxsDiag.Controls.Add(this.label18);
             this.grpVxsDiag.Enabled = false;
             this.grpVxsDiag.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.grpVxsDiag.Location = new System.Drawing.Point(325, 495);
+            this.grpVxsDiag.Location = new System.Drawing.Point(325, 377);
             this.grpVxsDiag.Name = "grpVxsDiag";
-            this.grpVxsDiag.Size = new System.Drawing.Size(341, 254);
+            this.grpVxsDiag.Size = new System.Drawing.Size(341, 218);
             this.grpVxsDiag.TabIndex = 7;
             this.grpVxsDiag.TabStop = false;
             this.grpVxsDiag.Text = "Diagnostics";
@@ -735,20 +740,21 @@
             // 
             this.cmbVolumes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbVolumes.FormattingEnabled = true;
-            this.cmbVolumes.Location = new System.Drawing.Point(173, 208);
+            this.cmbVolumes.Location = new System.Drawing.Point(69, 30);
             this.cmbVolumes.Name = "cmbVolumes";
-            this.cmbVolumes.Size = new System.Drawing.Size(152, 29);
+            this.cmbVolumes.Size = new System.Drawing.Size(264, 29);
             this.cmbVolumes.TabIndex = 21;
+            this.cmbVolumes.SelectedIndexChanged += new System.EventHandler(this.cmbVolumes_SelectedIndexChanged);
             // 
             // label27
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(61, 211);
+            this.label27.Location = new System.Drawing.Point(23, 30);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(102, 21);
+            this.label27.Size = new System.Drawing.Size(40, 21);
             this.label27.TabIndex = 20;
-            this.label27.Text = "Rec. Volumes";
+            this.label27.Text = "Path";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblRecorderUnitEvents
@@ -926,9 +932,9 @@
             this.grpBoxRecorderDetail.Controls.Add(this.lblRecorderUnitGUID);
             this.grpBoxRecorderDetail.Enabled = false;
             this.grpBoxRecorderDetail.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.grpBoxRecorderDetail.Location = new System.Drawing.Point(9, 495);
+            this.grpBoxRecorderDetail.Location = new System.Drawing.Point(9, 377);
             this.grpBoxRecorderDetail.Name = "grpBoxRecorderDetail";
-            this.grpBoxRecorderDetail.Size = new System.Drawing.Size(310, 254);
+            this.grpBoxRecorderDetail.Size = new System.Drawing.Size(310, 372);
             this.grpBoxRecorderDetail.TabIndex = 3;
             this.grpBoxRecorderDetail.TabStop = false;
             this.grpBoxRecorderDetail.Text = "Selected Recorder";
@@ -1066,6 +1072,7 @@
             this.olvRecorderAssocDS.ContextMenuStrip = this.ctxDeviceToolkit;
             this.olvRecorderAssocDS.Cursor = System.Windows.Forms.Cursors.Default;
             this.olvRecorderAssocDS.FullRowSelect = true;
+            this.olvRecorderAssocDS.HideSelection = false;
             this.olvRecorderAssocDS.Location = new System.Drawing.Point(672, 40);
             this.olvRecorderAssocDS.Name = "olvRecorderAssocDS";
             this.olvRecorderAssocDS.ShowGroups = false;
@@ -1147,10 +1154,11 @@
             this.olvRecorderSearchResult.ContextMenuStrip = this.ctxDeviceToolkit;
             this.olvRecorderSearchResult.Cursor = System.Windows.Forms.Cursors.Default;
             this.olvRecorderSearchResult.FullRowSelect = true;
+            this.olvRecorderSearchResult.HideSelection = false;
             this.olvRecorderSearchResult.Location = new System.Drawing.Point(7, 108);
             this.olvRecorderSearchResult.Name = "olvRecorderSearchResult";
             this.olvRecorderSearchResult.ShowGroups = false;
-            this.olvRecorderSearchResult.Size = new System.Drawing.Size(658, 381);
+            this.olvRecorderSearchResult.Size = new System.Drawing.Size(658, 263);
             this.olvRecorderSearchResult.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.olvRecorderSearchResult.TabIndex = 0;
             this.olvRecorderSearchResult.UseCompatibleStateImageBehavior = false;
@@ -1566,6 +1574,7 @@
             this.olvAssocDevice.ContextMenuStrip = this.ctxDeviceToolkit;
             this.olvAssocDevice.Cursor = System.Windows.Forms.Cursors.Default;
             this.olvAssocDevice.FullRowSelect = true;
+            this.olvAssocDevice.HideSelection = false;
             this.olvAssocDevice.Location = new System.Drawing.Point(498, 627);
             this.olvAssocDevice.MultiSelect = false;
             this.olvAssocDevice.Name = "olvAssocDevice";
@@ -1664,6 +1673,7 @@
             this.olvDatasourceResults.ContextMenuStrip = this.ctxDeviceToolkit;
             this.olvDatasourceResults.Cursor = System.Windows.Forms.Cursors.Default;
             this.olvDatasourceResults.FullRowSelect = true;
+            this.olvDatasourceResults.HideSelection = false;
             this.olvDatasourceResults.Location = new System.Drawing.Point(497, 44);
             this.olvDatasourceResults.Name = "olvDatasourceResults";
             this.olvDatasourceResults.ShowGroups = false;
@@ -1727,7 +1737,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.picCamPreviewJPG.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.picCamPreviewJPG.ErrorImage = global::VxCameraAuditor3.Properties.Resources.code_icon;
-            this.picCamPreviewJPG.Image = global::VxCameraAuditor3.Properties.Resources.pelco_logo;
+            this.picCamPreviewJPG.Image = global::VxCameraAuditor3.Properties.Resources.pelco_msi_logo;
             this.picCamPreviewJPG.InitialImage = global::VxCameraAuditor3.Properties.Resources.pelco_logo;
             this.picCamPreviewJPG.Location = new System.Drawing.Point(9, 174);
             this.picCamPreviewJPG.Name = "picCamPreviewJPG";
@@ -1788,6 +1798,155 @@
             this.tabDashboard.TabIndex = 6;
             this.tabDashboard.Text = "System Overview";
             this.tabDashboard.UseVisualStyleBackColor = true;
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.lblOverviewMonitorQty);
+            this.groupBox12.Controls.Add(this.lblOverviewUIQty);
+            this.groupBox12.Controls.Add(this.lblOverviewClientsQty);
+            this.groupBox12.Location = new System.Drawing.Point(28, 468);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(403, 149);
+            this.groupBox12.TabIndex = 14;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Client Devices";
+            // 
+            // lblOverviewMonitorQty
+            // 
+            this.lblOverviewMonitorQty.AutoSize = true;
+            this.lblOverviewMonitorQty.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOverviewMonitorQty.Location = new System.Drawing.Point(93, 103);
+            this.lblOverviewMonitorQty.Name = "lblOverviewMonitorQty";
+            this.lblOverviewMonitorQty.Size = new System.Drawing.Size(160, 25);
+            this.lblOverviewMonitorQty.TabIndex = 9;
+            this.lblOverviewMonitorQty.Text = "0 Shared Displays";
+            // 
+            // lblOverviewUIQty
+            // 
+            this.lblOverviewUIQty.AutoSize = true;
+            this.lblOverviewUIQty.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOverviewUIQty.Location = new System.Drawing.Point(93, 66);
+            this.lblOverviewUIQty.Name = "lblOverviewUIQty";
+            this.lblOverviewUIQty.Size = new System.Drawing.Size(145, 25);
+            this.lblOverviewUIQty.TabIndex = 8;
+            this.lblOverviewUIQty.Text = "0 VxOpsCenters";
+            // 
+            // lblOverviewClientsQty
+            // 
+            this.lblOverviewClientsQty.AutoSize = true;
+            this.lblOverviewClientsQty.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOverviewClientsQty.Location = new System.Drawing.Point(25, 28);
+            this.lblOverviewClientsQty.Name = "lblOverviewClientsQty";
+            this.lblOverviewClientsQty.Size = new System.Drawing.Size(164, 25);
+            this.lblOverviewClientsQty.TabIndex = 6;
+            this.lblOverviewClientsQty.Text = "0 Viewing Devices";
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.lblOverviewASQty);
+            this.groupBox11.Controls.Add(this.lblOverviewAIOQty);
+            this.groupBox11.Controls.Add(this.lblOverviewNSMQty);
+            this.groupBox11.Controls.Add(this.lblOverviewVXSQty);
+            this.groupBox11.Controls.Add(this.lblOverviewMGQty);
+            this.groupBox11.Controls.Add(this.lblOverviewCoreQty);
+            this.groupBox11.Controls.Add(this.lblOverviewRecorderQty);
+            this.groupBox11.Controls.Add(this.lblOverviewServersQty);
+            this.groupBox11.Location = new System.Drawing.Point(28, 89);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(403, 362);
+            this.groupBox11.TabIndex = 7;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "System Servers";
+            // 
+            // lblOverviewASQty
+            // 
+            this.lblOverviewASQty.AutoSize = true;
+            this.lblOverviewASQty.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOverviewASQty.Location = new System.Drawing.Point(93, 181);
+            this.lblOverviewASQty.Name = "lblOverviewASQty";
+            this.lblOverviewASQty.Size = new System.Drawing.Size(176, 25);
+            this.lblOverviewASQty.TabIndex = 13;
+            this.lblOverviewASQty.Text = "0 Accessory Servers";
+            // 
+            // lblOverviewAIOQty
+            // 
+            this.lblOverviewAIOQty.AutoSize = true;
+            this.lblOverviewAIOQty.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOverviewAIOQty.Location = new System.Drawing.Point(93, 142);
+            this.lblOverviewAIOQty.Name = "lblOverviewAIOQty";
+            this.lblOverviewAIOQty.Size = new System.Drawing.Size(143, 25);
+            this.lblOverviewAIOQty.TabIndex = 12;
+            this.lblOverviewAIOQty.Text = "0 VxPro Servers";
+            // 
+            // lblOverviewNSMQty
+            // 
+            this.lblOverviewNSMQty.AutoSize = true;
+            this.lblOverviewNSMQty.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOverviewNSMQty.Location = new System.Drawing.Point(93, 314);
+            this.lblOverviewNSMQty.Name = "lblOverviewNSMQty";
+            this.lblOverviewNSMQty.Size = new System.Drawing.Size(141, 25);
+            this.lblOverviewNSMQty.TabIndex = 11;
+            this.lblOverviewNSMQty.Text = "0 Endura NSMs";
+            // 
+            // lblOverviewVXSQty
+            // 
+            this.lblOverviewVXSQty.AutoSize = true;
+            this.lblOverviewVXSQty.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOverviewVXSQty.Location = new System.Drawing.Point(93, 271);
+            this.lblOverviewVXSQty.Name = "lblOverviewVXSQty";
+            this.lblOverviewVXSQty.Size = new System.Drawing.Size(178, 25);
+            this.lblOverviewVXSQty.TabIndex = 10;
+            this.lblOverviewVXSQty.Text = "0 VxStorage Servers";
+            // 
+            // lblOverviewMGQty
+            // 
+            this.lblOverviewMGQty.AutoSize = true;
+            this.lblOverviewMGQty.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOverviewMGQty.Location = new System.Drawing.Point(93, 103);
+            this.lblOverviewMGQty.Name = "lblOverviewMGQty";
+            this.lblOverviewMGQty.Size = new System.Drawing.Size(165, 25);
+            this.lblOverviewMGQty.TabIndex = 9;
+            this.lblOverviewMGQty.Text = "0 Media Gateways";
+            // 
+            // lblOverviewCoreQty
+            // 
+            this.lblOverviewCoreQty.AutoSize = true;
+            this.lblOverviewCoreQty.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOverviewCoreQty.Location = new System.Drawing.Point(93, 66);
+            this.lblOverviewCoreQty.Name = "lblOverviewCoreQty";
+            this.lblOverviewCoreQty.Size = new System.Drawing.Size(75, 25);
+            this.lblOverviewCoreQty.TabIndex = 8;
+            this.lblOverviewCoreQty.Text = "0 Cores";
+            // 
+            // lblOverviewRecorderQty
+            // 
+            this.lblOverviewRecorderQty.AutoSize = true;
+            this.lblOverviewRecorderQty.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOverviewRecorderQty.Location = new System.Drawing.Point(25, 228);
+            this.lblOverviewRecorderQty.Name = "lblOverviewRecorderQty";
+            this.lblOverviewRecorderQty.Size = new System.Drawing.Size(208, 25);
+            this.lblOverviewRecorderQty.TabIndex = 7;
+            this.lblOverviewRecorderQty.Text = "0 Recorders (VXS/NSM)";
+            // 
+            // lblOverviewServersQty
+            // 
+            this.lblOverviewServersQty.AutoSize = true;
+            this.lblOverviewServersQty.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOverviewServersQty.Location = new System.Drawing.Point(25, 28);
+            this.lblOverviewServersQty.Name = "lblOverviewServersQty";
+            this.lblOverviewServersQty.Size = new System.Drawing.Size(331, 25);
+            this.lblOverviewServersQty.TabIndex = 6;
+            this.lblOverviewServersQty.Text = "0 System Servers (Core/MG/VxPro/AS)";
+            // 
+            // lblOverviewSystemType
+            // 
+            this.lblOverviewSystemType.AutoSize = true;
+            this.lblOverviewSystemType.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOverviewSystemType.Location = new System.Drawing.Point(356, 24);
+            this.lblOverviewSystemType.Name = "lblOverviewSystemType";
+            this.lblOverviewSystemType.Size = new System.Drawing.Size(275, 30);
+            this.lblOverviewSystemType.TabIndex = 2;
+            this.lblOverviewSystemType.Text = "Your system is UNKNOWN";
             // 
             // btnGetSystemDashboard
             // 
@@ -1957,6 +2116,7 @@
             this.clmAssocDSGUID});
             this.olvAssocDataSources.Cursor = System.Windows.Forms.Cursors.Default;
             this.olvAssocDataSources.FullRowSelect = true;
+            this.olvAssocDataSources.HideSelection = false;
             this.olvAssocDataSources.Location = new System.Drawing.Point(8, 605);
             this.olvAssocDataSources.Name = "olvAssocDataSources";
             this.olvAssocDataSources.ShowGroups = false;
@@ -2078,6 +2238,7 @@
             this.olvDeviceResults.ContextMenuStrip = this.ctxDeviceToolkit;
             this.olvDeviceResults.Cursor = System.Windows.Forms.Cursors.Default;
             this.olvDeviceResults.FullRowSelect = true;
+            this.olvDeviceResults.HideSelection = false;
             this.olvDeviceResults.Location = new System.Drawing.Point(8, 103);
             this.olvDeviceResults.Name = "olvDeviceResults";
             this.olvDeviceResults.ShowGroups = false;
@@ -2266,6 +2427,7 @@
             this.olvAssocPhoneNumbers.Cursor = System.Windows.Forms.Cursors.Default;
             this.olvAssocPhoneNumbers.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.olvAssocPhoneNumbers.FullRowSelect = true;
+            this.olvAssocPhoneNumbers.HideSelection = false;
             this.olvAssocPhoneNumbers.Location = new System.Drawing.Point(368, 52);
             this.olvAssocPhoneNumbers.Name = "olvAssocPhoneNumbers";
             this.olvAssocPhoneNumbers.ShowGroups = false;
@@ -2295,6 +2457,7 @@
             this.olvAssocRoles.Cursor = System.Windows.Forms.Cursors.Default;
             this.olvAssocRoles.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.olvAssocRoles.FullRowSelect = true;
+            this.olvAssocRoles.HideSelection = false;
             this.olvAssocRoles.Location = new System.Drawing.Point(6, 52);
             this.olvAssocRoles.Name = "olvAssocRoles";
             this.olvAssocRoles.ShowGroups = false;
@@ -2503,6 +2666,7 @@
             this.olvUserList.ContextMenuStrip = this.ctxUserToolkit;
             this.olvUserList.Cursor = System.Windows.Forms.Cursors.Default;
             this.olvUserList.FullRowSelect = true;
+            this.olvUserList.HideSelection = false;
             this.olvUserList.Location = new System.Drawing.Point(325, 31);
             this.olvUserList.Name = "olvUserList";
             this.olvUserList.ShowGroups = false;
@@ -2595,154 +2759,57 @@
             this.ctxDeleteUsers.Text = "Delete";
             this.ctxDeleteUsers.Click += new System.EventHandler(this.ctxDeleteUsers_Click);
             // 
-            // lblOverviewSystemType
+            // groupBox13
             // 
-            this.lblOverviewSystemType.AutoSize = true;
-            this.lblOverviewSystemType.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOverviewSystemType.Location = new System.Drawing.Point(356, 24);
-            this.lblOverviewSystemType.Name = "lblOverviewSystemType";
-            this.lblOverviewSystemType.Size = new System.Drawing.Size(275, 30);
-            this.lblOverviewSystemType.TabIndex = 2;
-            this.lblOverviewSystemType.Text = "Your system is UNKNOWN";
+            this.groupBox13.Controls.Add(this.label44);
+            this.groupBox13.Controls.Add(this.label43);
+            this.groupBox13.Controls.Add(this.label41);
+            this.groupBox13.Controls.Add(this.prgVolumeSpace);
+            this.groupBox13.Controls.Add(this.cmbVolumes);
+            this.groupBox13.Controls.Add(this.label27);
+            this.groupBox13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox13.Location = new System.Drawing.Point(326, 601);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(339, 148);
+            this.groupBox13.TabIndex = 9;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Recording Volumes";
             // 
-            // lblOverviewServersQty
+            // prgVolumeSpace
             // 
-            this.lblOverviewServersQty.AutoSize = true;
-            this.lblOverviewServersQty.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOverviewServersQty.Location = new System.Drawing.Point(25, 28);
-            this.lblOverviewServersQty.Name = "lblOverviewServersQty";
-            this.lblOverviewServersQty.Size = new System.Drawing.Size(331, 25);
-            this.lblOverviewServersQty.TabIndex = 6;
-            this.lblOverviewServersQty.Text = "0 System Servers (Core/MG/VxPro/AS)";
+            this.prgVolumeSpace.Location = new System.Drawing.Point(69, 65);
+            this.prgVolumeSpace.Name = "prgVolumeSpace";
+            this.prgVolumeSpace.Size = new System.Drawing.Size(264, 41);
+            this.prgVolumeSpace.TabIndex = 22;
             // 
-            // groupBox11
+            // label41
             // 
-            this.groupBox11.Controls.Add(this.lblOverviewASQty);
-            this.groupBox11.Controls.Add(this.lblOverviewAIOQty);
-            this.groupBox11.Controls.Add(this.lblOverviewNSMQty);
-            this.groupBox11.Controls.Add(this.lblOverviewVXSQty);
-            this.groupBox11.Controls.Add(this.lblOverviewMGQty);
-            this.groupBox11.Controls.Add(this.lblOverviewCoreQty);
-            this.groupBox11.Controls.Add(this.lblOverviewRecorderQty);
-            this.groupBox11.Controls.Add(this.lblOverviewServersQty);
-            this.groupBox11.Location = new System.Drawing.Point(28, 89);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(403, 362);
-            this.groupBox11.TabIndex = 7;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "System Servers";
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.Location = new System.Drawing.Point(10, 65);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(53, 21);
+            this.label41.TabIndex = 23;
+            this.label41.Text = "Usage";
+            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // lblOverviewRecorderQty
+            // label43
             // 
-            this.lblOverviewRecorderQty.AutoSize = true;
-            this.lblOverviewRecorderQty.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOverviewRecorderQty.Location = new System.Drawing.Point(25, 228);
-            this.lblOverviewRecorderQty.Name = "lblOverviewRecorderQty";
-            this.lblOverviewRecorderQty.Size = new System.Drawing.Size(208, 25);
-            this.lblOverviewRecorderQty.TabIndex = 7;
-            this.lblOverviewRecorderQty.Text = "0 Recorders (VXS/NSM)";
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(65, 109);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(61, 21);
+            this.label43.TabIndex = 24;
+            this.label43.Text = "label43";
             // 
-            // lblOverviewCoreQty
+            // label44
             // 
-            this.lblOverviewCoreQty.AutoSize = true;
-            this.lblOverviewCoreQty.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOverviewCoreQty.Location = new System.Drawing.Point(93, 66);
-            this.lblOverviewCoreQty.Name = "lblOverviewCoreQty";
-            this.lblOverviewCoreQty.Size = new System.Drawing.Size(75, 25);
-            this.lblOverviewCoreQty.TabIndex = 8;
-            this.lblOverviewCoreQty.Text = "0 Cores";
-            // 
-            // lblOverviewMGQty
-            // 
-            this.lblOverviewMGQty.AutoSize = true;
-            this.lblOverviewMGQty.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOverviewMGQty.Location = new System.Drawing.Point(93, 103);
-            this.lblOverviewMGQty.Name = "lblOverviewMGQty";
-            this.lblOverviewMGQty.Size = new System.Drawing.Size(165, 25);
-            this.lblOverviewMGQty.TabIndex = 9;
-            this.lblOverviewMGQty.Text = "0 Media Gateways";
-            // 
-            // lblOverviewVXSQty
-            // 
-            this.lblOverviewVXSQty.AutoSize = true;
-            this.lblOverviewVXSQty.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOverviewVXSQty.Location = new System.Drawing.Point(93, 271);
-            this.lblOverviewVXSQty.Name = "lblOverviewVXSQty";
-            this.lblOverviewVXSQty.Size = new System.Drawing.Size(178, 25);
-            this.lblOverviewVXSQty.TabIndex = 10;
-            this.lblOverviewVXSQty.Text = "0 VxStorage Servers";
-            // 
-            // lblOverviewNSMQty
-            // 
-            this.lblOverviewNSMQty.AutoSize = true;
-            this.lblOverviewNSMQty.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOverviewNSMQty.Location = new System.Drawing.Point(93, 314);
-            this.lblOverviewNSMQty.Name = "lblOverviewNSMQty";
-            this.lblOverviewNSMQty.Size = new System.Drawing.Size(141, 25);
-            this.lblOverviewNSMQty.TabIndex = 11;
-            this.lblOverviewNSMQty.Text = "0 Endura NSMs";
-            // 
-            // lblOverviewAIOQty
-            // 
-            this.lblOverviewAIOQty.AutoSize = true;
-            this.lblOverviewAIOQty.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOverviewAIOQty.Location = new System.Drawing.Point(93, 142);
-            this.lblOverviewAIOQty.Name = "lblOverviewAIOQty";
-            this.lblOverviewAIOQty.Size = new System.Drawing.Size(143, 25);
-            this.lblOverviewAIOQty.TabIndex = 12;
-            this.lblOverviewAIOQty.Text = "0 VxPro Servers";
-            // 
-            // lblOverviewASQty
-            // 
-            this.lblOverviewASQty.AutoSize = true;
-            this.lblOverviewASQty.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOverviewASQty.Location = new System.Drawing.Point(93, 181);
-            this.lblOverviewASQty.Name = "lblOverviewASQty";
-            this.lblOverviewASQty.Size = new System.Drawing.Size(176, 25);
-            this.lblOverviewASQty.TabIndex = 13;
-            this.lblOverviewASQty.Text = "0 Accessory Servers";
-            // 
-            // groupBox12
-            // 
-            this.groupBox12.Controls.Add(this.lblOverviewMonitorQty);
-            this.groupBox12.Controls.Add(this.lblOverviewUIQty);
-            this.groupBox12.Controls.Add(this.lblOverviewClientsQty);
-            this.groupBox12.Location = new System.Drawing.Point(28, 468);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(403, 149);
-            this.groupBox12.TabIndex = 14;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "Client Devices";
-            // 
-            // lblOverviewMonitorQty
-            // 
-            this.lblOverviewMonitorQty.AutoSize = true;
-            this.lblOverviewMonitorQty.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOverviewMonitorQty.Location = new System.Drawing.Point(93, 103);
-            this.lblOverviewMonitorQty.Name = "lblOverviewMonitorQty";
-            this.lblOverviewMonitorQty.Size = new System.Drawing.Size(160, 25);
-            this.lblOverviewMonitorQty.TabIndex = 9;
-            this.lblOverviewMonitorQty.Text = "0 Shared Displays";
-            // 
-            // lblOverviewUIQty
-            // 
-            this.lblOverviewUIQty.AutoSize = true;
-            this.lblOverviewUIQty.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOverviewUIQty.Location = new System.Drawing.Point(93, 66);
-            this.lblOverviewUIQty.Name = "lblOverviewUIQty";
-            this.lblOverviewUIQty.Size = new System.Drawing.Size(145, 25);
-            this.lblOverviewUIQty.TabIndex = 8;
-            this.lblOverviewUIQty.Text = "0 VxOpsCenters";
-            // 
-            // lblOverviewClientsQty
-            // 
-            this.lblOverviewClientsQty.AutoSize = true;
-            this.lblOverviewClientsQty.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOverviewClientsQty.Location = new System.Drawing.Point(25, 28);
-            this.lblOverviewClientsQty.Name = "lblOverviewClientsQty";
-            this.lblOverviewClientsQty.Size = new System.Drawing.Size(164, 25);
-            this.lblOverviewClientsQty.TabIndex = 6;
-            this.lblOverviewClientsQty.Text = "0 Viewing Devices";
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(194, 109);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(61, 21);
+            this.label44.TabIndex = 25;
+            this.label44.Text = "label44";
             // 
             // frmMain
             // 
@@ -2792,6 +2859,10 @@
             this.tabVUMainGUI.ResumeLayout(false);
             this.tabDashboard.ResumeLayout(false);
             this.tabDashboard.PerformLayout();
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
             this.tabDeviceSearch.ResumeLayout(false);
             this.tabDeviceSearch.PerformLayout();
             this.groupBox10.ResumeLayout(false);
@@ -2811,10 +2882,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.olvUserList)).EndInit();
             this.ctxUserToolkit.ResumeLayout(false);
             this.ctxUserToolkit.PerformLayout();
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox11.PerformLayout();
-            this.groupBox12.ResumeLayout(false);
-            this.groupBox12.PerformLayout();
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3059,6 +3128,11 @@
         private System.Windows.Forms.Label lblOverviewMonitorQty;
         private System.Windows.Forms.Label lblOverviewUIQty;
         private System.Windows.Forms.Label lblOverviewClientsQty;
+        private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.ProgressBar prgVolumeSpace;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label43;
     }
 }
 

@@ -80,7 +80,7 @@ namespace VxCameraAuditor3
             recordersearchlist.Clear();
             aggsysmemberlist.Clear();
 
-            picCamPreviewJPG.Image = Properties.Resources.pelco_logo;
+            picCamPreviewJPG.Image = Properties.Resources.pelco_msi_logo;
 
             lblSvrAddr.Text = "https://" + Properties.Settings.Default.vxCore;
             lblCurrentUser.Text = Properties.Settings.Default.vxAdmin;
@@ -904,7 +904,7 @@ namespace VxCameraAuditor3
             List<vxDevice> datasource_parents = new List<vxDevice>();
             List<vxRecorder> datasource_recorder = new List<vxRecorder>();
 
-            picCamPreviewJPG.Image = Properties.Resources.pelco_logo;
+            picCamPreviewJPG.Image = Properties.Resources.pelco_msi_logo;
             lblSnapshotStatus.ForeColor = Color.Yellow;
             lblSnapshotStatus.Text = "Loading Camera...";
             lblClipStartTime.Text = "(Start Time)";
@@ -921,7 +921,7 @@ namespace VxCameraAuditor3
             if (olvDatasourceResults.SelectedObjects.Count == 0)
             {
                 lblSnapshotStatus.Text = "(Select one camera)";
-                picCamPreviewJPG.Image = Properties.Resources.pelco_logo;
+                picCamPreviewJPG.Image = Properties.Resources.pelco_msi_logo;
             }
             else if (olvDatasourceResults.SelectedObjects.Count == 1)
             {
@@ -997,7 +997,7 @@ namespace VxCameraAuditor3
                 }
                 else
                 {                    
-                    picCamPreviewJPG.Image = Properties.Resources.pelco_logo;
+                    picCamPreviewJPG.Image = Properties.Resources.pelco_msi_logo;
                 }
 
                 // Start of Clip Query Operation
@@ -1401,7 +1401,7 @@ namespace VxCameraAuditor3
                 }
                 else
                 {
-                    picCamPreviewJPG.Image = Properties.Resources.pelco_logo;
+                    picCamPreviewJPG.Image = Properties.Resources.pelco_msi_logo;
                 }
 
             }
@@ -1782,6 +1782,7 @@ namespace VxCameraAuditor3
                                     cmbVolumes.Items.Add(v.path);
                                 }
 
+                                cmbVolumes.SelectedIndex = 0;
                                 grpVxsDiag.Enabled = true;
 
                             }
@@ -1901,7 +1902,6 @@ namespace VxCameraAuditor3
             return _ConfigResult;
         }
 
-
         private Volumes getVxsVolumes(string _vxsIP, string _vxsPort)
         {
             // Step 1. Get to /system
@@ -1957,6 +1957,11 @@ namespace VxCameraAuditor3
 
         }
 
+
+        private void cmbVolumes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
 
         #endregion
 
@@ -2410,7 +2415,6 @@ namespace VxCameraAuditor3
             }
         }
 
-       
     }
         #endregion
 

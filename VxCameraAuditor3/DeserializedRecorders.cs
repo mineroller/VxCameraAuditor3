@@ -120,6 +120,8 @@ namespace VxCameraAuditor3
         public bool online { get; set; }
         public string path { get; set; }
         public bool reserve_bandwidth { get; set; }
+        public int total { get; set; }
+        public int used { get; set; }
     }
 
     public class Limits
