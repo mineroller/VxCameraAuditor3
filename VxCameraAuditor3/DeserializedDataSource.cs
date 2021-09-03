@@ -20,7 +20,7 @@ namespace VxCameraAuditor3
         public string state { get; set; }
         public string type { get; set; }
         public Embedded _embedded { get; set; }
-        public List<DataInterface> data_interfaces { get; set; }
+        public List<vxDataInterface> data_interfaces { get; set; }
         public bool capturing { get; set; }
         public bool recording { get; set; }
         public bool live { get; set; }
@@ -29,13 +29,21 @@ namespace VxCameraAuditor3
         public string _last_modified { get; set; }
     }
 
-    public class DataInterface
+    public class vxDataInterface
     {
         public string _type { get; set; }
-        public relLinks _links { get; set; }
-        public string endpoint { get; set; }
-        public string protocol { get; set; }
+        public relLinks _links { get; set; }                        
+        public int bitrate { get; set; }
+        public string data_encoding_id { get; set; }
+        public string format { get; set; }
+        public double framerate { get; set; }
         public bool multicast { get; set; }
+        public string protocol { get; set; }
+        public string render_type { get; set; }
+        public bool transcoded { get; set; }
+        public int x_resolution { get; set; }
+        public int y_resolution { get; set; }
+        public List<string> overlays { get; set; }
     }
 
 }

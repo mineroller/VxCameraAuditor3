@@ -74,10 +74,12 @@
             this.label34 = new System.Windows.Forms.Label();
             this.cmbSelectAggMember = new System.Windows.Forms.ComboBox();
             this.tabRecorder = new System.Windows.Forms.TabPage();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.prgVolumeSpace = new System.Windows.Forms.ProgressBar();
+            this.cmbVolumes = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
             this.grpVxsDiag = new System.Windows.Forms.GroupBox();
-            this.cmbVolumes = new System.Windows.Forms.ComboBox();
-            this.label27 = new System.Windows.Forms.Label();
             this.lblRecorderUnitEvents = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.lblRecorderUnitXcast = new System.Windows.Forms.Label();
@@ -268,11 +270,16 @@
             this.ctxMenuResetPwd = new System.Windows.Forms.ToolStripMenuItem();
             this.ctxMenuAssignNewRole = new System.Windows.Forms.ToolStripMenuItem();
             this.ctxDeleteUsers = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.prgVolumeSpace = new System.Windows.Forms.ProgressBar();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label43 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
+            this.olvDataInterfaces = new BrightIdeasSoftware.ObjectListView();
+            this.label27 = new System.Windows.Forms.Label();
+            this.clmFormat = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.clmFramerate = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.clmProtocol = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.clmName = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.clmMulticast = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.clmXpx = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.clmYpx = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.clmTranscoded = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.statusStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -280,6 +287,7 @@
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tabRecorder.SuspendLayout();
+            this.groupBox13.SuspendLayout();
             this.grpVxsDiag.SuspendLayout();
             this.grpBoxRecorderDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.olvRecorderAssocDS)).BeginInit();
@@ -308,7 +316,7 @@
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.olvUserList)).BeginInit();
             this.ctxUserToolkit.SuspendLayout();
-            this.groupBox13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.olvDataInterfaces)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -702,6 +710,47 @@
             this.tabRecorder.Text = "Recorder Information";
             this.tabRecorder.UseVisualStyleBackColor = true;
             // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.label41);
+            this.groupBox13.Controls.Add(this.prgVolumeSpace);
+            this.groupBox13.Controls.Add(this.cmbVolumes);
+            this.groupBox13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox13.Location = new System.Drawing.Point(9, 601);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(656, 148);
+            this.groupBox13.TabIndex = 9;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Recording Volumes";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.Location = new System.Drawing.Point(173, 77);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(306, 21);
+            this.label41.TabIndex = 23;
+            this.label41.Text = "Total Storage Used (All volumes combined)";
+            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // prgVolumeSpace
+            // 
+            this.prgVolumeSpace.Location = new System.Drawing.Point(7, 101);
+            this.prgVolumeSpace.Name = "prgVolumeSpace";
+            this.prgVolumeSpace.Size = new System.Drawing.Size(643, 41);
+            this.prgVolumeSpace.TabIndex = 22;
+            // 
+            // cmbVolumes
+            // 
+            this.cmbVolumes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbVolumes.FormattingEnabled = true;
+            this.cmbVolumes.Location = new System.Drawing.Point(6, 28);
+            this.cmbVolumes.Name = "cmbVolumes";
+            this.cmbVolumes.Size = new System.Drawing.Size(643, 29);
+            this.cmbVolumes.TabIndex = 21;
+            this.cmbVolumes.SelectedIndexChanged += new System.EventHandler(this.cmbVolumes_SelectedIndexChanged);
+            // 
             // label22
             // 
             this.label22.AutoSize = true;
@@ -735,27 +784,6 @@
             this.grpVxsDiag.TabIndex = 7;
             this.grpVxsDiag.TabStop = false;
             this.grpVxsDiag.Text = "Diagnostics";
-            // 
-            // cmbVolumes
-            // 
-            this.cmbVolumes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbVolumes.FormattingEnabled = true;
-            this.cmbVolumes.Location = new System.Drawing.Point(69, 30);
-            this.cmbVolumes.Name = "cmbVolumes";
-            this.cmbVolumes.Size = new System.Drawing.Size(264, 29);
-            this.cmbVolumes.TabIndex = 21;
-            this.cmbVolumes.SelectedIndexChanged += new System.EventHandler(this.cmbVolumes_SelectedIndexChanged);
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(23, 30);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(40, 21);
-            this.label27.TabIndex = 20;
-            this.label27.Text = "Path";
-            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblRecorderUnitEvents
             // 
@@ -934,7 +962,7 @@
             this.grpBoxRecorderDetail.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.grpBoxRecorderDetail.Location = new System.Drawing.Point(9, 377);
             this.grpBoxRecorderDetail.Name = "grpBoxRecorderDetail";
-            this.grpBoxRecorderDetail.Size = new System.Drawing.Size(310, 372);
+            this.grpBoxRecorderDetail.Size = new System.Drawing.Size(310, 218);
             this.grpBoxRecorderDetail.TabIndex = 3;
             this.grpBoxRecorderDetail.TabStop = false;
             this.grpBoxRecorderDetail.Text = "Selected Recorder";
@@ -1209,6 +1237,8 @@
             // 
             // tabCameraSearch
             // 
+            this.tabCameraSearch.Controls.Add(this.label27);
+            this.tabCameraSearch.Controls.Add(this.olvDataInterfaces);
             this.tabCameraSearch.Controls.Add(this.btnImportCSV_DS);
             this.tabCameraSearch.Controls.Add(this.btnExportCSV_DS);
             this.tabCameraSearch.Controls.Add(this.btnSearchOnline);
@@ -1521,7 +1551,7 @@
             // 
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(495, 611);
+            this.label12.Location = new System.Drawing.Point(495, 442);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(319, 13);
             this.label12.TabIndex = 9;
@@ -1575,7 +1605,7 @@
             this.olvAssocDevice.Cursor = System.Windows.Forms.Cursors.Default;
             this.olvAssocDevice.FullRowSelect = true;
             this.olvAssocDevice.HideSelection = false;
-            this.olvAssocDevice.Location = new System.Drawing.Point(498, 627);
+            this.olvAssocDevice.Location = new System.Drawing.Point(498, 458);
             this.olvAssocDevice.MultiSelect = false;
             this.olvAssocDevice.Name = "olvAssocDevice";
             this.olvAssocDevice.ShowGroups = false;
@@ -1677,7 +1707,7 @@
             this.olvDatasourceResults.Location = new System.Drawing.Point(497, 44);
             this.olvDatasourceResults.Name = "olvDatasourceResults";
             this.olvDatasourceResults.ShowGroups = false;
-            this.olvDatasourceResults.Size = new System.Drawing.Size(851, 563);
+            this.olvDatasourceResults.Size = new System.Drawing.Size(851, 395);
             this.olvDatasourceResults.TabIndex = 3;
             this.olvDatasourceResults.UseAlternatingBackColors = true;
             this.olvDatasourceResults.UseCompatibleStateImageBehavior = false;
@@ -1985,6 +2015,7 @@
             // 
             // btnAddDeviceByCSV
             // 
+            this.btnAddDeviceByCSV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddDeviceByCSV.Location = new System.Drawing.Point(1088, 541);
             this.btnAddDeviceByCSV.Name = "btnAddDeviceByCSV";
             this.btnAddDeviceByCSV.Size = new System.Drawing.Size(250, 30);
@@ -1994,6 +2025,7 @@
             // 
             // btnManualAddOneDevice
             // 
+            this.btnManualAddOneDevice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnManualAddOneDevice.Location = new System.Drawing.Point(832, 541);
             this.btnManualAddOneDevice.Name = "btnManualAddOneDevice";
             this.btnManualAddOneDevice.Size = new System.Drawing.Size(250, 30);
@@ -2104,6 +2136,9 @@
             this.olvAssocDataSources.AllColumns.Add(this.clmAssocDSCap);
             this.olvAssocDataSources.AllColumns.Add(this.clmAssocDSRec);
             this.olvAssocDataSources.AllColumns.Add(this.clmAssocDSGUID);
+            this.olvAssocDataSources.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.olvAssocDataSources.CellEditUseWholeCell = false;
             this.olvAssocDataSources.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.clmAssocDSNumber,
@@ -2223,6 +2258,8 @@
             this.olvDeviceResults.AllColumns.Add(this.clmDeviceVendor);
             this.olvDeviceResults.AllColumns.Add(this.clmDeviceCommissioned);
             this.olvDeviceResults.AllColumns.Add(this.clmDeviceGUID);
+            this.olvDeviceResults.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.olvDeviceResults.CellEditUseWholeCell = false;
             this.olvDeviceResults.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.clmDeviceName,
@@ -2759,57 +2796,98 @@
             this.ctxDeleteUsers.Text = "Delete";
             this.ctxDeleteUsers.Click += new System.EventHandler(this.ctxDeleteUsers_Click);
             // 
-            // groupBox13
+            // olvDataInterfaces
             // 
-            this.groupBox13.Controls.Add(this.label44);
-            this.groupBox13.Controls.Add(this.label43);
-            this.groupBox13.Controls.Add(this.label41);
-            this.groupBox13.Controls.Add(this.prgVolumeSpace);
-            this.groupBox13.Controls.Add(this.cmbVolumes);
-            this.groupBox13.Controls.Add(this.label27);
-            this.groupBox13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox13.Location = new System.Drawing.Point(326, 601);
-            this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(339, 148);
-            this.groupBox13.TabIndex = 9;
-            this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "Recording Volumes";
+            this.olvDataInterfaces.AllColumns.Add(this.clmName);
+            this.olvDataInterfaces.AllColumns.Add(this.clmFormat);
+            this.olvDataInterfaces.AllColumns.Add(this.clmFramerate);
+            this.olvDataInterfaces.AllColumns.Add(this.clmProtocol);
+            this.olvDataInterfaces.AllColumns.Add(this.clmMulticast);
+            this.olvDataInterfaces.AllColumns.Add(this.clmXpx);
+            this.olvDataInterfaces.AllColumns.Add(this.clmYpx);
+            this.olvDataInterfaces.AllColumns.Add(this.clmTranscoded);
+            this.olvDataInterfaces.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.olvDataInterfaces.CellEditUseWholeCell = false;
+            this.olvDataInterfaces.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.clmName,
+            this.clmFormat,
+            this.clmFramerate,
+            this.clmProtocol,
+            this.clmMulticast,
+            this.clmXpx,
+            this.clmYpx,
+            this.clmTranscoded});
+            this.olvDataInterfaces.Cursor = System.Windows.Forms.Cursors.Default;
+            this.olvDataInterfaces.FullRowSelect = true;
+            this.olvDataInterfaces.HideSelection = false;
+            this.olvDataInterfaces.Location = new System.Drawing.Point(494, 621);
+            this.olvDataInterfaces.MultiSelect = false;
+            this.olvDataInterfaces.Name = "olvDataInterfaces";
+            this.olvDataInterfaces.ShowGroups = false;
+            this.olvDataInterfaces.Size = new System.Drawing.Size(847, 146);
+            this.olvDataInterfaces.TabIndex = 36;
+            this.olvDataInterfaces.UseCompatibleStateImageBehavior = false;
+            this.olvDataInterfaces.View = System.Windows.Forms.View.Details;
+            this.olvDataInterfaces.DoubleClick += new System.EventHandler(this.olvDataInterfaces_DoubleClick);
             // 
-            // prgVolumeSpace
+            // label27
             // 
-            this.prgVolumeSpace.Location = new System.Drawing.Point(69, 65);
-            this.prgVolumeSpace.Name = "prgVolumeSpace";
-            this.prgVolumeSpace.Size = new System.Drawing.Size(264, 41);
-            this.prgVolumeSpace.TabIndex = 22;
+            this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(495, 603);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(259, 13);
+            this.label27.TabIndex = 37;
+            this.label27.Text = "Associated DataInterface for the selected camera:";
             // 
-            // label41
+            // clmFormat
             // 
-            this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.Location = new System.Drawing.Point(10, 65);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(53, 21);
-            this.label41.TabIndex = 23;
-            this.label41.Text = "Usage";
-            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.clmFormat.AspectName = "format";
+            this.clmFormat.Text = "Format";
+            this.clmFormat.Width = 77;
             // 
-            // label43
+            // clmFramerate
             // 
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(65, 109);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(61, 21);
-            this.label43.TabIndex = 24;
-            this.label43.Text = "label43";
+            this.clmFramerate.AspectName = "framerate";
+            this.clmFramerate.Text = "Framerate";
+            this.clmFramerate.Width = 117;
             // 
-            // label44
+            // clmProtocol
             // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(194, 109);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(61, 21);
-            this.label44.TabIndex = 25;
-            this.label44.Text = "label44";
+            this.clmProtocol.AspectName = "protocol";
+            this.clmProtocol.Text = "Protocol";
+            this.clmProtocol.Width = 105;
+            // 
+            // clmName
+            // 
+            this.clmName.AspectName = "data_encoding_id";
+            this.clmName.Text = "Name";
+            this.clmName.Width = 93;
+            // 
+            // clmMulticast
+            // 
+            this.clmMulticast.AspectName = "multicast";
+            this.clmMulticast.Text = "Multicast";
+            this.clmMulticast.Width = 113;
+            // 
+            // clmXpx
+            // 
+            this.clmXpx.AspectName = "x_resolution";
+            this.clmXpx.Text = "Width";
+            this.clmXpx.Width = 97;
+            // 
+            // clmYpx
+            // 
+            this.clmYpx.AspectName = "y_resolution";
+            this.clmYpx.Text = "Height";
+            this.clmYpx.Width = 131;
+            // 
+            // clmTranscoded
+            // 
+            this.clmTranscoded.AspectName = "transcoded";
+            this.clmTranscoded.Text = "Transcoded";
+            this.clmTranscoded.Width = 88;
             // 
             // frmMain
             // 
@@ -2842,6 +2920,8 @@
             this.groupBox4.ResumeLayout(false);
             this.tabRecorder.ResumeLayout(false);
             this.tabRecorder.PerformLayout();
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
             this.grpVxsDiag.ResumeLayout(false);
             this.grpVxsDiag.PerformLayout();
             this.grpBoxRecorderDetail.ResumeLayout(false);
@@ -2882,8 +2962,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.olvUserList)).EndInit();
             this.ctxUserToolkit.ResumeLayout(false);
             this.ctxUserToolkit.PerformLayout();
-            this.groupBox13.ResumeLayout(false);
-            this.groupBox13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.olvDataInterfaces)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3049,7 +3128,6 @@
         private System.Windows.Forms.Label lblRecorderUnitEvents;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.ComboBox cmbVolumes;
-        private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Button btnSearchOnline;
         private BrightIdeasSoftware.OLVColumn clmEmail;
         private System.Windows.Forms.GroupBox groupBox7;
@@ -3131,8 +3209,16 @@
         private System.Windows.Forms.GroupBox groupBox13;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.ProgressBar prgVolumeSpace;
-        private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label27;
+        private BrightIdeasSoftware.ObjectListView olvDataInterfaces;
+        private BrightIdeasSoftware.OLVColumn clmName;
+        private BrightIdeasSoftware.OLVColumn clmFormat;
+        private BrightIdeasSoftware.OLVColumn clmFramerate;
+        private BrightIdeasSoftware.OLVColumn clmProtocol;
+        private BrightIdeasSoftware.OLVColumn clmMulticast;
+        private BrightIdeasSoftware.OLVColumn clmXpx;
+        private BrightIdeasSoftware.OLVColumn clmYpx;
+        private BrightIdeasSoftware.OLVColumn clmTranscoded;
     }
 }
 

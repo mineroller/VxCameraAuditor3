@@ -19,7 +19,7 @@ namespace VxCameraAuditor3
         public int number { get; set; }
         public string state { get; set; }
         public string type { get; set; }
-        public List<DataInterface> data_interfaces { get; set; }
+        public List<vxDataInterface> data_interfaces { get; set; }
         public bool capturing { get; set; }
         public bool recording { get; set; }
         public bool live { get; set; }

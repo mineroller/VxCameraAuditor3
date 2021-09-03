@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Pelco")]
 [assembly: AssemblyProduct("Vx Camera Auditor 3")]
-[assembly: AssemblyCopyright("Copyright © Jonathan Lee 2019")]
+[assembly: AssemblyCopyright("Copyright © Jonathan Lee 2021")]
 [assembly: AssemblyTrademark("Pelco VideoXpert")]
 [assembly: AssemblyCulture("")]
 
@@ -31,5 +31,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("3.1.0.0")]
-[assembly: AssemblyFileVersion("3.1.2019.0218")]
+[assembly: AssemblyVersion("3.2.0.0")]
+[assembly: AssemblyFileVersion("3.2.2021.0903")]

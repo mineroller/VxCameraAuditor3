@@ -11,6 +11,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Windows.Forms;
+using NLog;
 
 
 namespace VxCameraAuditor3
@@ -28,7 +29,7 @@ namespace VxCameraAuditor3
         public bool largepreview { get; set; }
         public bool SystemIsVxPro { get; set; }
 
-
+        private static Logger VcaLogger = LogManager.GetCurrentClassLogger();
 
         private Control parentcontrol;
 
@@ -65,6 +66,8 @@ namespace VxCameraAuditor3
                     return true; // **** Always accept
                 };
 
+            VcaLogger.Info("------------------------------VCA3 Started--------------------------------");
+
             ResetConnectivity();
 
         }
@@ -90,6 +93,7 @@ namespace VxCameraAuditor3
             btnAddUser.Enabled = false;
             cmbRoleList.Enabled = false;
 
+            VcaLogger.Info("ResetConnectivity Completed");
         }
 
        private void ConsoleOutput(ConsoleWindow_Status c_status, string c_message)
@@ -607,6 +611,7 @@ namespace VxCameraAuditor3
             {
 
                 RestClient vuClient = new RestClient("https://" + Properties.Settings.Default.vxCore);
+                VcaLogger.Debug("Connecting to https://" + Properties.Settings.Default.vxCore);
 
                 RestRequest askVersion = SerenityRequest.getReq("system/versions", false);
                 IRestResponse<Versions> respVersion = vuClient.Execute<Versions>(askVersion);
@@ -615,7 +620,7 @@ namespace VxCameraAuditor3
 
                 if (respVersion.StatusCode == HttpStatusCode.OK)
                 {
-
+                    VcaLogger.Debug("Server > HTTP 200 OK");
                     if (respVersion.Data.supported_versions.Any(ver => ver.Contains(targetVersion)))
                     {
                         SerenityVersion = targetVersion;
@@ -929,6 +934,7 @@ namespace VxCameraAuditor3
 
                 vxDataSource ds = (vxDataSource)olvDatasourceResults.SelectedObject;
                 vxDevice d = ds._embedded.pelco_rel_device;
+                List<vxDataInterface> list_di = ds.data_interfaces;
                 datasource_parents.Add(d);
 
                 RecorderQuery d_rq = ds._embedded.pelco_rel_data_storages;
@@ -944,6 +950,8 @@ namespace VxCameraAuditor3
                 }
 
                 olvAssocDevice.SetObjects(datasource_parents);
+
+                olvDataInterfaces.SetObjects(list_di);
 
                 // Camera Preview
 
@@ -1407,6 +1415,41 @@ namespace VxCameraAuditor3
             }
         }
 
+        private void olvDataInterfaces_DoubleClick(object sender, EventArgs e)
+        {
+            if (olvDataInterfaces.SelectedObjects.Count == 1)
+            {
+                Clipboard.Clear();
+                vxDataInterface _di = (vxDataInterface)olvDataInterfaces.SelectedObject;
+                string eplink = _di.protocol.ToUpper() + " Endpoint for ";
+                if (_di.protocol != "mjpeg-pull")
+                {
+                    eplink += _di.data_encoding_id.ToUpper() + ", ";
+
+                    if (_di.format != null)
+                    {
+                        eplink += _di.format.ToUpper() + " in ";
+                    }
+                    
+                    if (_di.multicast == true)
+                    {
+                        eplink += "MULTICAST";
+                    }
+                    else
+                    {
+                        eplink += "UNICAST";
+                    }
+                }
+                else
+                {
+                    eplink += "MJPEG Stream URL";
+                }
+                
+                Clipboard.SetText(_di._links.pelco_rel_endpoint);
+                MessageBox.Show(eplink + " has been copied to clipboard!", "Copy Endpoint Address", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
         #endregion
 
         #region Enhanced Device Search
@@ -1776,13 +1819,21 @@ namespace VxCameraAuditor3
                                 lblRecorderUnitEvents.Text = vxsDiag.events.event_rate.ToString();
 
                                 Volumes vxsVolumes = getVxsVolumes(recdevice.ip, Properties.Settings.Default.vxsPort);
+                                float totalStorCap = 0;
+                                float totalUsedCap = 0;
 
                                 foreach (vxVolume v in vxsVolumes.volumes)
                                 {
-                                    cmbVolumes.Items.Add(v.path);
+                                    string volText = v.path + " [" + (v.used/1024).ToString("N") + " MiB used/" + (v.total/1024).ToString("N") + " MiB avail]";                                    
+                                    cmbVolumes.Items.Add(volText);
+                                    totalStorCap += v.total;
+                                    totalUsedCap += v.used;
                                 }
 
                                 cmbVolumes.SelectedIndex = 0;
+                                float totalPercent = (totalUsedCap / totalStorCap) * 100;
+                                // MessageBox.Show(totalUsedCap.ToString() + "-" + totalStorCap.ToString() + "-" + );
+                                prgVolumeSpace.Value = (int)totalPercent;
                                 grpVxsDiag.Enabled = true;
 
                             }
@@ -2415,6 +2466,7 @@ namespace VxCameraAuditor3
             }
         }
 
+        
     }
         #endregion
 
