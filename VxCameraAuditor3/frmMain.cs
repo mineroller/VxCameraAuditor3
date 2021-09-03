@@ -1439,20 +1439,22 @@ namespace VxCameraAuditor3
                     {
                         eplink += "UNICAST";
                     }
+                    
+                    Clipboard.Clear();
+                    Clipboard.SetText(_di._links.pelco_rel_endpoint);
+
+                    string ffplay_args = "-x 1280 -y 720 -window_title \"" + eplink + "\" -i \"" + _di._links.pelco_rel_endpoint + "\"";
+                    Process.Start(@"ffmpeg-bin\ffplay.exe", ffplay_args);
                 }
                 else
                 {
                     eplink += "MJPEG Stream URL";
-                }
 
-                Clipboard.Clear();
-                Clipboard.SetText(_di._links.pelco_rel_endpoint);
+                    Clipboard.Clear();
+                    Clipboard.SetText(_di._links.pelco_rel_endpoint);
 
-                // string ffplay_args = "-x 1280 -y 720 -i " + _di._links.pelco_rel_endpoint;
-                string ffplay_args = "-x 1280 -y 720 -window_title \"" + eplink + "\" -i \"" + _di._links.pelco_rel_endpoint+"\"";
-                    Process.Start(@"ffmpeg-bin\ffplay.exe", ffplay_args);
-                
-                // MessageBox.Show(eplink + " has been copied to clipboard!", "Copy Endpoint Address", MessageBoxButtons.OK, MessageBoxIcon.Information);*/
+                    MessageBox.Show(eplink + " has been copied to clipboard!", "Copy Endpoint Address", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }                                               
             }
         }
 
