@@ -124,6 +124,16 @@
             this.olvColumn55 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.olvColumn1 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.tabCameraSearch = new System.Windows.Forms.TabPage();
+            this.label27 = new System.Windows.Forms.Label();
+            this.olvDataInterfaces = new BrightIdeasSoftware.ObjectListView();
+            this.clmName = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.clmFormat = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.clmFramerate = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.clmProtocol = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.clmMulticast = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.clmXpx = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.clmYpx = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.clmTranscoded = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.btnImportCSV_DS = new System.Windows.Forms.Button();
             this.btnExportCSV_DS = new System.Windows.Forms.Button();
             this.btnSearchOnline = new System.Windows.Forms.Button();
@@ -270,16 +280,6 @@
             this.ctxMenuResetPwd = new System.Windows.Forms.ToolStripMenuItem();
             this.ctxMenuAssignNewRole = new System.Windows.Forms.ToolStripMenuItem();
             this.ctxDeleteUsers = new System.Windows.Forms.ToolStripMenuItem();
-            this.olvDataInterfaces = new BrightIdeasSoftware.ObjectListView();
-            this.label27 = new System.Windows.Forms.Label();
-            this.clmFormat = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.clmFramerate = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.clmProtocol = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.clmName = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.clmMulticast = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.clmXpx = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.clmYpx = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.clmTranscoded = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.statusStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -293,6 +293,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.olvRecorderAssocDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.olvRecorderSearchResult)).BeginInit();
             this.tabCameraSearch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.olvDataInterfaces)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numSeconds)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.olvAssocDevice)).BeginInit();
@@ -316,7 +317,6 @@
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.olvUserList)).BeginInit();
             this.ctxUserToolkit.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.olvDataInterfaces)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -1267,6 +1267,99 @@
             this.tabCameraSearch.TabIndex = 1;
             this.tabCameraSearch.Text = "Camera Manager";
             this.tabCameraSearch.UseVisualStyleBackColor = true;
+            // 
+            // label27
+            // 
+            this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(495, 603);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(259, 13);
+            this.label27.TabIndex = 37;
+            this.label27.Text = "Associated DataInterface for the selected camera:";
+            // 
+            // olvDataInterfaces
+            // 
+            this.olvDataInterfaces.AllColumns.Add(this.clmName);
+            this.olvDataInterfaces.AllColumns.Add(this.clmFormat);
+            this.olvDataInterfaces.AllColumns.Add(this.clmFramerate);
+            this.olvDataInterfaces.AllColumns.Add(this.clmProtocol);
+            this.olvDataInterfaces.AllColumns.Add(this.clmMulticast);
+            this.olvDataInterfaces.AllColumns.Add(this.clmXpx);
+            this.olvDataInterfaces.AllColumns.Add(this.clmYpx);
+            this.olvDataInterfaces.AllColumns.Add(this.clmTranscoded);
+            this.olvDataInterfaces.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.olvDataInterfaces.CellEditUseWholeCell = false;
+            this.olvDataInterfaces.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.clmName,
+            this.clmFormat,
+            this.clmFramerate,
+            this.clmProtocol,
+            this.clmMulticast,
+            this.clmXpx,
+            this.clmYpx,
+            this.clmTranscoded});
+            this.olvDataInterfaces.Cursor = System.Windows.Forms.Cursors.Default;
+            this.olvDataInterfaces.FullRowSelect = true;
+            this.olvDataInterfaces.HideSelection = false;
+            this.olvDataInterfaces.Location = new System.Drawing.Point(498, 619);
+            this.olvDataInterfaces.MultiSelect = false;
+            this.olvDataInterfaces.Name = "olvDataInterfaces";
+            this.olvDataInterfaces.ShowGroups = false;
+            this.olvDataInterfaces.Size = new System.Drawing.Size(847, 146);
+            this.olvDataInterfaces.TabIndex = 36;
+            this.olvDataInterfaces.UseCompatibleStateImageBehavior = false;
+            this.olvDataInterfaces.View = System.Windows.Forms.View.Details;
+            this.olvDataInterfaces.DoubleClick += new System.EventHandler(this.olvDataInterfaces_DoubleClick);
+            // 
+            // clmName
+            // 
+            this.clmName.AspectName = "data_encoding_id";
+            this.clmName.Text = "Name";
+            this.clmName.Width = 93;
+            // 
+            // clmFormat
+            // 
+            this.clmFormat.AspectName = "format";
+            this.clmFormat.Text = "Format";
+            this.clmFormat.Width = 77;
+            // 
+            // clmFramerate
+            // 
+            this.clmFramerate.AspectName = "framerate";
+            this.clmFramerate.Text = "Framerate";
+            this.clmFramerate.Width = 117;
+            // 
+            // clmProtocol
+            // 
+            this.clmProtocol.AspectName = "protocol";
+            this.clmProtocol.Text = "Protocol";
+            this.clmProtocol.Width = 105;
+            // 
+            // clmMulticast
+            // 
+            this.clmMulticast.AspectName = "multicast";
+            this.clmMulticast.Text = "Multicast";
+            this.clmMulticast.Width = 113;
+            // 
+            // clmXpx
+            // 
+            this.clmXpx.AspectName = "x_resolution";
+            this.clmXpx.Text = "Width";
+            this.clmXpx.Width = 97;
+            // 
+            // clmYpx
+            // 
+            this.clmYpx.AspectName = "y_resolution";
+            this.clmYpx.Text = "Height";
+            this.clmYpx.Width = 131;
+            // 
+            // clmTranscoded
+            // 
+            this.clmTranscoded.AspectName = "transcoded";
+            this.clmTranscoded.Text = "Transcoded";
+            this.clmTranscoded.Width = 88;
             // 
             // btnImportCSV_DS
             // 
@@ -2796,99 +2889,6 @@
             this.ctxDeleteUsers.Text = "Delete";
             this.ctxDeleteUsers.Click += new System.EventHandler(this.ctxDeleteUsers_Click);
             // 
-            // olvDataInterfaces
-            // 
-            this.olvDataInterfaces.AllColumns.Add(this.clmName);
-            this.olvDataInterfaces.AllColumns.Add(this.clmFormat);
-            this.olvDataInterfaces.AllColumns.Add(this.clmFramerate);
-            this.olvDataInterfaces.AllColumns.Add(this.clmProtocol);
-            this.olvDataInterfaces.AllColumns.Add(this.clmMulticast);
-            this.olvDataInterfaces.AllColumns.Add(this.clmXpx);
-            this.olvDataInterfaces.AllColumns.Add(this.clmYpx);
-            this.olvDataInterfaces.AllColumns.Add(this.clmTranscoded);
-            this.olvDataInterfaces.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.olvDataInterfaces.CellEditUseWholeCell = false;
-            this.olvDataInterfaces.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.clmName,
-            this.clmFormat,
-            this.clmFramerate,
-            this.clmProtocol,
-            this.clmMulticast,
-            this.clmXpx,
-            this.clmYpx,
-            this.clmTranscoded});
-            this.olvDataInterfaces.Cursor = System.Windows.Forms.Cursors.Default;
-            this.olvDataInterfaces.FullRowSelect = true;
-            this.olvDataInterfaces.HideSelection = false;
-            this.olvDataInterfaces.Location = new System.Drawing.Point(494, 621);
-            this.olvDataInterfaces.MultiSelect = false;
-            this.olvDataInterfaces.Name = "olvDataInterfaces";
-            this.olvDataInterfaces.ShowGroups = false;
-            this.olvDataInterfaces.Size = new System.Drawing.Size(847, 146);
-            this.olvDataInterfaces.TabIndex = 36;
-            this.olvDataInterfaces.UseCompatibleStateImageBehavior = false;
-            this.olvDataInterfaces.View = System.Windows.Forms.View.Details;
-            this.olvDataInterfaces.DoubleClick += new System.EventHandler(this.olvDataInterfaces_DoubleClick);
-            // 
-            // label27
-            // 
-            this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(495, 603);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(259, 13);
-            this.label27.TabIndex = 37;
-            this.label27.Text = "Associated DataInterface for the selected camera:";
-            // 
-            // clmFormat
-            // 
-            this.clmFormat.AspectName = "format";
-            this.clmFormat.Text = "Format";
-            this.clmFormat.Width = 77;
-            // 
-            // clmFramerate
-            // 
-            this.clmFramerate.AspectName = "framerate";
-            this.clmFramerate.Text = "Framerate";
-            this.clmFramerate.Width = 117;
-            // 
-            // clmProtocol
-            // 
-            this.clmProtocol.AspectName = "protocol";
-            this.clmProtocol.Text = "Protocol";
-            this.clmProtocol.Width = 105;
-            // 
-            // clmName
-            // 
-            this.clmName.AspectName = "data_encoding_id";
-            this.clmName.Text = "Name";
-            this.clmName.Width = 93;
-            // 
-            // clmMulticast
-            // 
-            this.clmMulticast.AspectName = "multicast";
-            this.clmMulticast.Text = "Multicast";
-            this.clmMulticast.Width = 113;
-            // 
-            // clmXpx
-            // 
-            this.clmXpx.AspectName = "x_resolution";
-            this.clmXpx.Text = "Width";
-            this.clmXpx.Width = 97;
-            // 
-            // clmYpx
-            // 
-            this.clmYpx.AspectName = "y_resolution";
-            this.clmYpx.Text = "Height";
-            this.clmYpx.Width = 131;
-            // 
-            // clmTranscoded
-            // 
-            this.clmTranscoded.AspectName = "transcoded";
-            this.clmTranscoded.Text = "Transcoded";
-            this.clmTranscoded.Width = 88;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2930,6 +2930,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.olvRecorderSearchResult)).EndInit();
             this.tabCameraSearch.ResumeLayout(false);
             this.tabCameraSearch.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.olvDataInterfaces)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numSeconds)).EndInit();
@@ -2962,7 +2963,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.olvUserList)).EndInit();
             this.ctxUserToolkit.ResumeLayout(false);
             this.ctxUserToolkit.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.olvDataInterfaces)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

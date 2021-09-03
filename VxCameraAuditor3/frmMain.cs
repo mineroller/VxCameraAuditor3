@@ -1419,9 +1419,9 @@ namespace VxCameraAuditor3
         {
             if (olvDataInterfaces.SelectedObjects.Count == 1)
             {
-                Clipboard.Clear();
-                vxDataInterface _di = (vxDataInterface)olvDataInterfaces.SelectedObject;
-                string eplink = _di.protocol.ToUpper() + " Endpoint for ";
+                vxDataInterface _di = (vxDataInterface)olvDataInterfaces.SelectedObject;                
+                
+                string eplink = _di.protocol.ToUpper() + ", ";
                 if (_di.protocol != "mjpeg-pull")
                 {
                     eplink += _di.data_encoding_id.ToUpper() + ", ";
@@ -1444,9 +1444,15 @@ namespace VxCameraAuditor3
                 {
                     eplink += "MJPEG Stream URL";
                 }
-                
+
+                Clipboard.Clear();
                 Clipboard.SetText(_di._links.pelco_rel_endpoint);
-                MessageBox.Show(eplink + " has been copied to clipboard!", "Copy Endpoint Address", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // string ffplay_args = "-x 1280 -y 720 -i " + _di._links.pelco_rel_endpoint;
+                string ffplay_args = "-x 1280 -y 720 -window_title \"" + eplink + "\" -i \"" + _di._links.pelco_rel_endpoint+"\"";
+                    Process.Start(@"ffmpeg-bin\ffplay.exe", ffplay_args);
+                
+                // MessageBox.Show(eplink + " has been copied to clipboard!", "Copy Endpoint Address", MessageBoxButtons.OK, MessageBoxIcon.Information);*/
             }
         }
 
