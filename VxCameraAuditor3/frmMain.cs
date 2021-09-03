@@ -1424,11 +1424,11 @@ namespace VxCameraAuditor3
                 string eplink = _di.protocol.ToUpper() + ", ";
                 if (_di.protocol != "mjpeg-pull")
                 {
-                    eplink += _di.data_encoding_id.ToUpper() + ", ";
+                    eplink += _di.data_encoding_id.ToUpper() + ", " + _di.x_resolution.ToString() + "x" + _di.y_resolution.ToString() + ", ";
 
                     if (_di.format != null)
                     {
-                        eplink += _di.format.ToUpper() + " in ";
+                        eplink += _di.format.ToUpper() + " using ";
                     }
                     
                     if (_di.multicast == true)
@@ -1443,7 +1443,7 @@ namespace VxCameraAuditor3
                     Clipboard.Clear();
                     Clipboard.SetText(_di._links.pelco_rel_endpoint);
 
-                    string ffplay_args = "-x 1280 -y 720 -window_title \"" + eplink + "\" -i \"" + _di._links.pelco_rel_endpoint + "\"";
+                    string ffplay_args = "-x " + _di.x_resolution + " -y " + _di.y_resolution + " -window_title \"" + eplink + "\" -i \"" + _di._links.pelco_rel_endpoint + "\"";
                     Process.Start(@"ffmpeg-bin\ffplay.exe", ffplay_args);
                 }
                 else
