@@ -24,6 +24,7 @@ namespace VxCameraAuditor3
         public Embedded _embedded { get; set; }
         public bool license_required { get; set; }
         public string model { get; set; }
+        public string mac_address { get; set; }
         public string name { get; set; }        
         public string password_key { get; set; }
         public string serial { get; set; }

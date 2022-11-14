@@ -16,7 +16,15 @@ namespace VxCameraAuditor3
     {
         public string Device_Name { get; set; }
         public string Device_GUID { get; set; }
-        public string IP_Address { get; set; }        
+        public string IP_Address { get; set; }
+        public string MAC_Address { get; set; }
+        public string Model { get; set; }
+        public string Type { get; set; }
+        public string Version { get; set; }
+        public string Serial { get; set; }
+        public string Status { get; set; }
+        public string Vendor { get; set; }
+        public bool Commissioned { get; set; }  
     }
 
     public class MultipartSnapshots

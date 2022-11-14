@@ -210,7 +210,6 @@
             this.btnOfflineDevices = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.btnExportCSV_Device = new System.Windows.Forms.Button();
-            this.btnImportCSV_Device = new System.Windows.Forms.Button();
             this.label42 = new System.Windows.Forms.Label();
             this.olvAssocDataSources = new BrightIdeasSoftware.ObjectListView();
             this.clmAssocDSNumber = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
@@ -232,6 +231,7 @@
             this.clmDeviceType = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.clmDeviceVersion = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.clmDeviceSerial = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.clmDeviceMac = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.clmDeviceState = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.clmDeviceVendor = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.clmDeviceCommissioned = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
@@ -373,19 +373,19 @@
             // connectToVxCoreToolStripMenuItem
             // 
             this.connectToVxCoreToolStripMenuItem.Name = "connectToVxCoreToolStripMenuItem";
-            this.connectToVxCoreToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.connectToVxCoreToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
             this.connectToVxCoreToolStripMenuItem.Text = "Initiate Connection to VxCore";
             this.connectToVxCoreToolStripMenuItem.Click += new System.EventHandler(this.connectToVxCoreToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(226, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(227, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -497,13 +497,13 @@
             // ctxEditDevice
             // 
             this.ctxEditDevice.Name = "ctxEditDevice";
-            this.ctxEditDevice.Size = new System.Drawing.Size(189, 22);
+            this.ctxEditDevice.Size = new System.Drawing.Size(190, 22);
             this.ctxEditDevice.Text = "Edit Device Name...";
             // 
             // ctxDeleteDevice
             // 
             this.ctxDeleteDevice.Name = "ctxDeleteDevice";
-            this.ctxDeleteDevice.Size = new System.Drawing.Size(189, 22);
+            this.ctxDeleteDevice.Size = new System.Drawing.Size(190, 22);
             this.ctxDeleteDevice.Text = "Delete Device from Vx";
             this.ctxDeleteDevice.Click += new System.EventHandler(this.ctxDeleteDevice_Click);
             // 
@@ -619,7 +619,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(25, 26);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(60, 15);
+            this.label9.Size = new System.Drawing.Size(61, 15);
             this.label9.TabIndex = 0;
             this.label9.Text = "VxCore IP:";
             // 
@@ -640,7 +640,7 @@
             // txtDSAdvFilter
             // 
             this.txtDSAdvFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDSAdvFilter.Location = new System.Drawing.Point(158, 12);
+            this.txtDSAdvFilter.Location = new System.Drawing.Point(158, 3);
             this.txtDSAdvFilter.Name = "txtDSAdvFilter";
             this.txtDSAdvFilter.Size = new System.Drawing.Size(155, 22);
             this.txtDSAdvFilter.TabIndex = 29;
@@ -758,7 +758,7 @@
             this.label22.ForeColor = System.Drawing.Color.OrangeRed;
             this.label22.Location = new System.Drawing.Point(243, 41);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(372, 13);
+            this.label22.Size = new System.Drawing.Size(373, 13);
             this.label22.TabIndex = 8;
             this.label22.Text = "NOTE 2: For Endura NSM, please use the Web Interface for diagnostics.";
             // 
@@ -933,7 +933,7 @@
             this.label13.ForeColor = System.Drawing.Color.OrangeRed;
             this.label13.Location = new System.Drawing.Point(243, 23);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(361, 13);
+            this.label13.Size = new System.Drawing.Size(362, 13);
             this.label13.TabIndex = 5;
             this.label13.Text = "NOTE: Only NSMs working as  Manager will have associated cameras.";
             // 
@@ -1399,7 +1399,7 @@
             this.btnDSAdvFilter.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnDSAdvFilter.Enabled = false;
             this.btnDSAdvFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDSAdvFilter.Location = new System.Drawing.Point(319, 7);
+            this.btnDSAdvFilter.Location = new System.Drawing.Point(319, 3);
             this.btnDSAdvFilter.Name = "btnDSAdvFilter";
             this.btnDSAdvFilter.Size = new System.Drawing.Size(155, 30);
             this.btnDSAdvFilter.TabIndex = 30;
@@ -1886,9 +1886,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 28);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 13);
+            this.label3.Size = new System.Drawing.Size(210, 13);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Search for Cameras";
+            this.label3.Text = "Search for Cameras (leave empty for all):";
             // 
             // tabVUMainGUI
             // 
@@ -2178,37 +2178,28 @@
             this.btnOfflineDevices.TabIndex = 0;
             this.btnOfflineDevices.Text = "OFFLINE";
             this.btnOfflineDevices.UseVisualStyleBackColor = true;
+            this.btnOfflineDevices.Click += new System.EventHandler(this.btnOfflineDevices_Click);
             // 
             // groupBox9
             // 
             this.groupBox9.Controls.Add(this.btnExportCSV_Device);
-            this.groupBox9.Controls.Add(this.btnImportCSV_Device);
             this.groupBox9.Location = new System.Drawing.Point(1071, 7);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(267, 90);
             this.groupBox9.TabIndex = 51;
             this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Edit Device Names";
+            this.groupBox9.Text = "Export Data";
             // 
             // btnExportCSV_Device
             // 
             this.btnExportCSV_Device.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExportCSV_Device.Location = new System.Drawing.Point(19, 18);
+            this.btnExportCSV_Device.Location = new System.Drawing.Point(17, 32);
             this.btnExportCSV_Device.Name = "btnExportCSV_Device";
             this.btnExportCSV_Device.Size = new System.Drawing.Size(231, 30);
             this.btnExportCSV_Device.TabIndex = 43;
             this.btnExportCSV_Device.Text = "Export current list to CSV File";
             this.btnExportCSV_Device.UseVisualStyleBackColor = true;
-            // 
-            // btnImportCSV_Device
-            // 
-            this.btnImportCSV_Device.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnImportCSV_Device.Location = new System.Drawing.Point(19, 54);
-            this.btnImportCSV_Device.Name = "btnImportCSV_Device";
-            this.btnImportCSV_Device.Size = new System.Drawing.Size(231, 30);
-            this.btnImportCSV_Device.TabIndex = 44;
-            this.btnImportCSV_Device.Text = "Import CSV File for Batch Update";
-            this.btnImportCSV_Device.UseVisualStyleBackColor = true;
+            this.btnExportCSV_Device.Click += new System.EventHandler(this.btnExportCSV_Device_Click);
             // 
             // label42
             // 
@@ -2347,6 +2338,7 @@
             this.olvDeviceResults.AllColumns.Add(this.clmDeviceType);
             this.olvDeviceResults.AllColumns.Add(this.clmDeviceVersion);
             this.olvDeviceResults.AllColumns.Add(this.clmDeviceSerial);
+            this.olvDeviceResults.AllColumns.Add(this.clmDeviceMac);
             this.olvDeviceResults.AllColumns.Add(this.clmDeviceState);
             this.olvDeviceResults.AllColumns.Add(this.clmDeviceVendor);
             this.olvDeviceResults.AllColumns.Add(this.clmDeviceCommissioned);
@@ -2361,6 +2353,7 @@
             this.clmDeviceType,
             this.clmDeviceVersion,
             this.clmDeviceSerial,
+            this.clmDeviceMac,
             this.clmDeviceState,
             this.clmDeviceVendor,
             this.clmDeviceCommissioned,
@@ -2414,6 +2407,11 @@
             this.clmDeviceSerial.Text = "Serial";
             this.clmDeviceSerial.Width = 121;
             // 
+            // clmDeviceMac
+            // 
+            this.clmDeviceMac.AspectName = "mac_address";
+            this.clmDeviceMac.Text = "MAC Address";
+            // 
             // clmDeviceState
             // 
             this.clmDeviceState.AspectName = "state";
@@ -2443,9 +2441,9 @@
             this.label38.AutoSize = true;
             this.label38.Location = new System.Drawing.Point(5, 20);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(169, 13);
+            this.label38.Size = new System.Drawing.Size(271, 13);
             this.label38.TabIndex = 39;
-            this.label38.Text = "Search for Devices in Vx System:";
+            this.label38.Text = "Search for Devices in Vx System (leave empty for all):";
             // 
             // btnSearchDevice
             // 
@@ -2907,7 +2905,7 @@
             this.Name = "frmMain";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Vx Quick System Auditor 3";
+            this.Text = "Vx Quick System Auditor 3 [2022.1114]";
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.menuStrip2.ResumeLayout(false);
@@ -3148,7 +3146,6 @@
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Button btnSearchDevice;
         private System.Windows.Forms.TextBox txtDeviceSearchTerm;
-        private System.Windows.Forms.Button btnImportCSV_Device;
         private System.Windows.Forms.Button btnExportCSV_Device;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label39;
@@ -3219,6 +3216,7 @@
         private BrightIdeasSoftware.OLVColumn clmXpx;
         private BrightIdeasSoftware.OLVColumn clmYpx;
         private BrightIdeasSoftware.OLVColumn clmTranscoded;
+        private BrightIdeasSoftware.OLVColumn clmDeviceMac;
     }
 }
 

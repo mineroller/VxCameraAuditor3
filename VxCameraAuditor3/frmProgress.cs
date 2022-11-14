@@ -18,11 +18,11 @@ namespace VxCameraAuditor3
         List<vxDevice> devicestodelete = new List<vxDevice>();
         List<ResourceRef> devcamsrscrefs = new List<ResourceRef>();
         List<TagAdd> tagstoadd = new List<TagAdd>();
-        List<DataSource_CSV> dstoupdate = new List<DataSource_CSV>();
+        List<Device_CSV> dstoupdate = new List<Device_CSV>();
         List<NewUser> userstoadd = new List<NewUser>();
         List<User_CSV> csvuserstoadd = new List<User_CSV>();
         List<Device_CSV> dev_csvlist = new List<Device_CSV>();
-        List<DataSource_CSV> ds_csvlist = new List<DataSource_CSV>();
+        List<Device_CSV> ds_csvlist = new List<Device_CSV>();
         List<vxUser> userlist = new List<vxUser>();
         List<vxRole> rolestoadd = new List<vxRole>();
 
@@ -48,7 +48,7 @@ namespace VxCameraAuditor3
             InitializeComponent();
         }
 
-        public frmProgress(List<DataSource_CSV> _CSVDSToAdd)
+        public frmProgress(List<Device_CSV> _CSVDSToAdd)
         {
             InitializeComponent();
             dstoupdate = _CSVDSToAdd;

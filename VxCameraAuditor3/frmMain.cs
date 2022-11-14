@@ -35,10 +35,9 @@ namespace VxCameraAuditor3
 
         // Serenity Objects for Global Access
 
-        List<vxDevice> devicesearchresult = new List<vxDevice>();
-        List<Clips> selectedcamclips = new List<Clips>();
-        List<vxDataSource> dssearchlist = new List<vxDataSource>();
         List<vxDevice> devicesearchlist = new List<vxDevice>();
+        List<Clips> selectedcamclips = new List<Clips>();
+        List<vxDataSource> dssearchlist = new List<vxDataSource>();        
         List<DataObject> do_searchlist = new List<DataObject>();
         List<vxRecorder> recordersearchlist = new List<vxRecorder>();
         List<AggMember> aggsysmemberlist = new List<AggMember>();
@@ -76,7 +75,7 @@ namespace VxCameraAuditor3
         {
             tabVUMainGUI.Enabled = false;
 
-            devicesearchresult.Clear();
+            devicesearchlist.Clear();
             dssearchlist.Clear();
             recordersearchlist.Clear();
             do_searchlist.Clear();
@@ -1087,7 +1086,7 @@ namespace VxCameraAuditor3
         {
             List<vxDataSource> _datasource_list = new List<vxDataSource>();
             _datasource_list.Clear();
-            devicesearchresult.Clear();
+            devicesearchlist.Clear();
 
             ConsoleOutput(ConsoleWindow_Status.Normal, "Querying...");
             Cursor.Current = Cursors.WaitCursor;
@@ -1247,7 +1246,7 @@ namespace VxCameraAuditor3
 
             foreach (vxDataSource d in dssearchlist)
             {
-                DataSource_CSV csvrow = new DataSource_CSV
+                DataSource_CSV csvrow = new DataSource_CSV()
                 {
                     Device_GUID = d.id,
                     IP_Address = d.ip,
@@ -1276,7 +1275,7 @@ namespace VxCameraAuditor3
 
         private void btnImportCSV_DS_Click(object sender, EventArgs e)
         {
-            List<DataSource_CSV> csv_DS_import = new List<DataSource_CSV>();
+            List<Device_CSV> csv_DS_import = new List<Device_CSV>();
             frmImportDataSourceCSV validateCSVDSFile = new frmImportDataSourceCSV();
             validateCSVDSFile.ShowDialog(this);
 
@@ -1421,39 +1420,39 @@ namespace VxCameraAuditor3
             {
                 vxDataInterface _di = (vxDataInterface)olvDataInterfaces.SelectedObject;                
                 
-                string eplink = _di.protocol.ToUpper() + ", ";
+                string di_description = _di.protocol.ToUpper() + ", ";
                 if (_di.protocol != "mjpeg-pull")
                 {
-                    eplink += _di.data_encoding_id.ToUpper() + ", " + _di.x_resolution.ToString() + "x" + _di.y_resolution.ToString() + ", ";
+                    di_description += _di.data_encoding_id.ToUpper() + ", " + _di.x_resolution.ToString() + "x" + _di.y_resolution.ToString() + ", ";
 
                     if (_di.format != null)
                     {
-                        eplink += _di.format.ToUpper() + " using ";
+                        di_description += _di.format.ToUpper() + " using ";
                     }
                     
                     if (_di.multicast == true)
                     {
-                        eplink += "MULTICAST";
+                        di_description += "MULTICAST";
                     }
                     else
                     {
-                        eplink += "UNICAST";
+                        di_description += "UNICAST";
                     }
                     
                     Clipboard.Clear();
                     Clipboard.SetText(_di._links.pelco_rel_endpoint);
 
-                    string ffplay_args = "-x " + _di.x_resolution + " -y " + _di.y_resolution + " -window_title \"" + eplink + "\" -i \"" + _di._links.pelco_rel_endpoint + "\"";
+                    string ffplay_args = "-x " + _di.x_resolution + " -y " + _di.y_resolution + " -window_title \"" + di_description + "\" -i \"" + _di._links.pelco_rel_endpoint + "\"";
                     Process.Start(@"ffmpeg-bin\ffplay.exe", ffplay_args);
                 }
                 else
                 {
-                    eplink += "MJPEG Stream URL";
+                    di_description += "MJPEG Stream URL";
 
                     Clipboard.Clear();
                     Clipboard.SetText(_di._links.pelco_rel_endpoint);
 
-                    MessageBox.Show(eplink + " has been copied to clipboard!", "Copy Endpoint Address", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(di_description + " has been copied to clipboard!", "Copy Endpoint Address", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }                                               
             }
         }
@@ -1464,20 +1463,20 @@ namespace VxCameraAuditor3
 
         private void btnSearchDevice_Click(object sender, EventArgs e)
         {
-            devicesearchresult.Clear();
-            devicesearchresult = SearchDevices(DeviceSearch_Type.General);
-            olvDeviceResults.SetObjects(devicesearchresult);
+            devicesearchlist.Clear();
+            devicesearchlist = SearchDevices(DeviceSearch_Type.General);
+            olvDeviceResults.SetObjects(devicesearchlist);
         }
 
         private void btnLastModified_Click(object sender, EventArgs e)
         {
             txtDeviceSearchTerm.Clear();
-            devicesearchresult.Clear();
-            devicesearchresult = SearchDevices(DeviceSearch_Type.General);
+            devicesearchlist.Clear();
+            devicesearchlist = SearchDevices(DeviceSearch_Type.General);
 
             List<vxDevice> modifiedOnList = new List<vxDevice>();
 
-            foreach (vxDevice d in devicesearchresult)
+            foreach (vxDevice d in devicesearchlist)
             {
                 DateTime modifiedTime = DateTime.Parse(d._last_modified);
                 if (modifiedTime.Date == dateTimePicker1.Value.Date)
@@ -1488,6 +1487,15 @@ namespace VxCameraAuditor3
 
             ConsoleOutput(ConsoleWindow_Status.Normal, Convert.ToString(modifiedOnList.Count) + " devices were last modified on " + dateTimePicker1.Value.Date.ToShortDateString());
             olvDeviceResults.SetObjects(modifiedOnList);
+        }
+
+
+        private void btnOfflineDevices_Click(object sender, EventArgs e)
+        {
+            txtDeviceSearchTerm.Clear();
+            devicesearchlist.Clear();
+            devicesearchlist = SearchDevices(DeviceSearch_Type.Offline);
+            olvDeviceResults.SetObjects(devicesearchlist);
         }
 
         private void olvDeviceResults_SelectedIndexChanged(object sender, EventArgs e)
@@ -1662,6 +1670,47 @@ namespace VxCameraAuditor3
 
             return _devicelist;
 
+        }
+
+
+        private void btnExportCSV_Device_Click(object sender, EventArgs e)
+        {
+            List<Device_CSV> csv_dev_export = new List<Device_CSV>();
+
+            foreach (vxDevice d in devicesearchlist)
+            {
+                Device_CSV csvrow = new Device_CSV
+                {
+                    Device_Name = d.name,
+                    Device_GUID = d.id,
+                    IP_Address = d.ip,
+                    MAC_Address = d.mac_address,
+                    Model = d.model,
+                    Type = d.type,
+                    Version = d.version,
+                    Serial = d.serial,
+                    Status = d.state,
+                    Vendor = d.vendor,
+                    Commissioned = d.commissioned
+                };
+                csv_dev_export.Add(csvrow);
+            }
+
+            saveVUFilesDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            saveVUFilesDialog.Filter = "Comma-Separated Values (*.csv)|*.csv";
+            saveVUFilesDialog.RestoreDirectory = true;
+            saveVUFilesDialog.ShowHelp = true;
+
+            if (saveVUFilesDialog.ShowDialog() == DialogResult.OK)
+            {
+                var csvwriter = new FileHelperEngine<Device_CSV>(Encoding.UTF8);
+
+                csvwriter.HeaderText = csvwriter.GetFileHeader();
+                csvwriter.WriteFile(saveVUFilesDialog.FileName, csv_dev_export);
+
+                MessageBox.Show("CSV File created in:\n" + saveVUFilesDialog.FileName, "Export Device CSV Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
         }
 
 

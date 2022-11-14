@@ -9,7 +9,7 @@ namespace VxCameraAuditor3
 {
     public partial class frmImportDataSourceCSV : Form
     {
-        public List<DataSource_CSV> importCSV_DS_list { get; set; }
+        public List<Device_CSV> importCSV_DS_list { get; set; }
 
         public frmImportDataSourceCSV()
         {
@@ -29,7 +29,7 @@ namespace VxCameraAuditor3
 
                 try
                 {
-                    var csvwriter = new FileHelperEngine<DataSource_CSV>(Encoding.UTF8);
+                    var csvwriter = new FileHelperEngine<Device_CSV>(Encoding.UTF8);
 
                     importCSV_DS_list = csvwriter.ReadFile(openCSV_DS_Dialog.FileName).ToList();
 
