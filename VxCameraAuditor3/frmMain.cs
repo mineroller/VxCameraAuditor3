@@ -12,7 +12,7 @@ using System.Net;
 using System.Text;
 using System.Windows.Forms;
 using NLog;
-
+using NLog.Fluent;
 
 namespace VxCameraAuditor3
 {
@@ -98,23 +98,22 @@ namespace VxCameraAuditor3
        private void ConsoleOutput(ConsoleWindow_Status c_status, string c_message)
         {
             Color _textcolour = new Color();
+
             switch (c_status)
             {
                 case ConsoleWindow_Status.Normal:
-                    _textcolour = Color.SpringGreen;
+                    _textcolour = Color.SpringGreen;                    
                     break;
-
                 case ConsoleWindow_Status.Warning:
-                    _textcolour = Color.Red;
+                    _textcolour = Color.Red;                    
                     break;
                 case ConsoleWindow_Status.Error:
-                    _textcolour = Color.OrangeRed;
+                    _textcolour = Color.OrangeRed;                    
                     break;
             }
 
             lblConsoleWindow.ForeColor = _textcolour;
             lblConsoleWindow.Text = c_message;
-
         }
 
 
@@ -601,7 +600,7 @@ namespace VxCameraAuditor3
             // Vx 3.x = Serenity 5.x
 
             string targetVersion = "5.1";
-
+            VcaLogger.Info("Starting connection to Vx system...");
             // Takes cursor into wait mode, in case IP is wrong and there is a connect timeout
             ConsoleOutput(ConsoleWindow_Status.Warning, "Checking connection... Please wait");
             Cursor.Current = Cursors.WaitCursor;
@@ -634,6 +633,7 @@ namespace VxCameraAuditor3
                         if (respSystem.StatusCode == HttpStatusCode.Forbidden)
                         {
                             ConsoleOutput(ConsoleWindow_Status.Warning, "Authentication failed.\nPlease check your admin user credentials.");
+                            VcaLogger.Error("Authentication failed. Check credentials");
                         }
 
                         else
@@ -645,6 +645,8 @@ namespace VxCameraAuditor3
                             if (vuURI.pelco_rel_devices != null) // if null, this means System License is expired.
                             {
                                 ConsoleOutput(ConsoleWindow_Status.Normal, "Found Vx System [" + connectedSystem + "] at\nhttps://" + Properties.Settings.Default.vxCore + vuURI.self);
+                                VcaLogger.Info("Found Vx System [" + connectedSystem + "] (" + systemID + ") at https://" + Properties.Settings.Default.vxCore + vuURI.self);
+
                                 lblAuxResultDisplay.Text = "Connected to [" + connectedSystem + "] (" + systemID + ")";
                                 tabVUMainGUI.Enabled = true;
 
@@ -709,6 +711,7 @@ namespace VxCameraAuditor3
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            VcaLogger.Info("------------------------------VCA3 Exited--------------------------------");
             Application.Exit();
         }
 
@@ -1443,7 +1446,14 @@ namespace VxCameraAuditor3
                     Clipboard.SetText(_di._links.pelco_rel_endpoint);
 
                     string ffplay_args = "-x " + _di.x_resolution + " -y " + _di.y_resolution + " -window_title \"" + di_description + "\" -i \"" + _di._links.pelco_rel_endpoint + "\"";
-                    Process.Start(@"ffmpeg-bin\ffplay.exe", ffplay_args);
+                    try
+                    {
+                        Process.Start(@"ffmpeg-bin\ffplay.exe", ffplay_args);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Cannot playback live video: " + ex.Message, "Unable to run FFPLAY", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
@@ -1881,7 +1891,7 @@ namespace VxCameraAuditor3
 
                                 foreach (vxVolume v in vxsVolumes.volumes)
                                 {
-                                    string volText = v.path + " [" + (v.used/1024).ToString("N") + " MiB used/" + (v.total/1024).ToString("N") + " MiB avail]";                                    
+                                    string volText = v.path + " [" + (v.used/1024).ToString("N") + " GB used/" + (v.total/1024).ToString("N") + " GB avail]";                                    
                                     cmbVolumes.Items.Add(volText);
                                     totalStorCap += v.total;
                                     totalUsedCap += v.used;
@@ -2492,13 +2502,18 @@ namespace VxCameraAuditor3
 
             foreach (vxUser u in usersearchlist)
             {
+                string u_phonenum0 = "";
+                if (u.phone_numbers.Count > 0)
+                {
+                    u_phonenum0 = u.phone_numbers[0].number;
+                }
                 User_CSV csvrow = new User_CSV
                 {
                     Username = u.name,
                     First_Name = u.first_name,
                     Last_Name = u.last_name,
-                    Employee_ID = u.employee_id,
-                    Work_Phone = u.phone_numbers[0].number,
+                    Employee_ID = u.employee_id,                    
+                    Work_Phone = u_phonenum0,
                     Email_Address = u.email,
                     Notes = u.note
                 };
